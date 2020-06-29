@@ -1,0 +1,32 @@
+{#首先 HTML 的 form 标签有 2 个重要的属性，action 和 method。#}
+{#action 指定表单内容提交的地址，这里我们提交给 comments:comment #}
+{#视图函数对应的 URL（后面会创建这个视图函数并绑定对应的 URL），#}
+{#模板标签 url 的用法在 分类、归档和标签页 教程中有详细介绍。#}
+{#method 指定提交表单时的 HTTP 请求类型，一般表单提交都是使用 POST。#}
+{##}
+{#然后我们看到 {% csrf_token %}，这个模板标签在表单渲染时会自动渲染为一个隐藏类型的 HTML input 控件#}
+{#其值为一个随机字符串，作用主要是为了防护 CSRF（跨站请求伪造）攻击#}
+{#{% csrf_token %} 在模板中渲染出来的内容大概如下所示：#}
+{#<input type="hidden" name="csrfmiddlewaretoken" value="KH9QLnpQPv2IBcv3oLsksJXdcGvKSnC8t0mTfRSeNIlk5T1G1MBEIwVhK4eh6gIZ">#}
+
+<form action="{% url 'comments:comment' post.pk %}" method="post" class="comment-form">
+  {% csrf_token %}
+  <div class="row">
+    <div class="col-md-4">
+      <label for="{{ form.name.id_for_label }}">{{ form.name.label }}：</label>
+      {{ form.name }}
+      {{ form.name.errors }}
+    </div>
+    <div class="col-md-4">
+      <label for="{{ form.email.id_for_label }}">{{ form.email.label }}：</label>
+      {{ form.email }}
+      {{ form.email.errors }}
+    </div>
+    <div class="col-md-12">
+      <label for="{{ form.text.id_for_label }}">{{ form.text.label }}：</label>
+      {{ form.text }}
+      {{ form.text.errors }}
+      <button type="submit" class="comment-btn">发表</button>
+    </div>
+  </div>    <!-- row -->
+</form>
