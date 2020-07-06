@@ -10,6 +10,15 @@ register=template.Library()
 
 """
 
+@register.inclusion_tag('blog/inclusions/_weather.html')
+def show_weather():
+    """
+    天气模板
+
+    """
+    pass
+
+
 @register.inclusion_tag('blog/inclusions/_recent_posts.html',takes_context=True)
 def show_recent_posts(context,num=5):
     """

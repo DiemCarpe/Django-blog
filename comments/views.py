@@ -47,4 +47,7 @@ def comment(request, post_pk):
         'form':form,
     }
     messages.add_message(request, messages.ERROR, '评论发表失败！请修改表单中的错误后重新提交。', extra_tags='danger')
-    return render(request,'comments/preview.html',context=context)
+    return render(request,'comments/inclusions/preview.html',context=context)
+
+
+

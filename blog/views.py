@@ -8,13 +8,13 @@ from django.utils.text import slugify
 from markdown.extensions.toc import TocExtension
 
 
-def index(request):
-    # return render(request,'blog/index.html',context={
+def blog(request):
+    # return render(request,'blog/_weather.html',context={
     #     'title':'我的博客首页',
     #     'he':'hah'
     # })
     post_list=Post.objects.all().order_by('-create_time')
-    return render(request,'blog/index.html',context={'post_list':post_list})
+    return render(request, 'blog/blog.html', context={'post_list':post_list})
 
 
 def detail(request,pk):
@@ -46,12 +46,12 @@ def archive(request,year,month):
     但是由于这里作为方法的参数列表，
     所以 django 要求我们把点替换成了两个下划线，即 created_time__year。
     同时和 index 视图中一样，我们对返回的文章列表进行了排序。
-    此外由于归档页面和首页展示文章的形式是一样的，因此直接复用了 index.html 模板
+    此外由于归档页面和首页展示文章的形式是一样的，因此直接复用了 _weather.html 模板
 
     """
     post_list=Post.objects.filter(create_time__year=year,
                                   create_time__month=month).order_by('-create_time')
-    return render(request,'blog/index.html',context={'post_list':post_list})
+    return render(request, 'blog/blog.html', context={'post_list':post_list})
 
 
 
@@ -59,13 +59,13 @@ def categories(request,pk):
 
     cate=get_object_or_404(Category,pk=pk)
     post_list=Post.objects.filter(category=cate).order_by('-create_time')
-    return render(request,'blog/index.html',context={'post_list':post_list})
+    return render(request, 'blog/blog.html', context={'post_list':post_list})
 
 
 def tag(request,pk):
     tag=get_object_or_404(Tag,pk=pk)
     post_list=Post.objects.filter(tags=tag).order_by('-create_time')
-    return render(request,'blog/index.html',context={'post_list':post_list})
+    return render(request, 'blog/blog.html', context={'post_list':post_list})
 
 
 
