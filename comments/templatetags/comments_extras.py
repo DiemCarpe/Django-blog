@@ -30,7 +30,8 @@ def show_comments(context,post):
     例如 Post.objects.filter(category=cate) 也可以等价写为 cate.post_set.all()
 
     """
-    comment_list=post.comment_set.all().order_by('-create_time')
+    # comment_list=post.comment_set.all().order_by('-created_time')
+    comment_list=post.comment_set.all()
     comment_count=comment_list.count()
 
     return {

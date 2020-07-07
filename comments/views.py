@@ -30,7 +30,8 @@ def comment(request, post_pk):
         # 最终将评论数据保存进数据库，调用模型实例的 save 方法
         comment.save()
 
-        messages.add_message(request,messages.SUCCESS,'评论成功！',extra_tags='success')
+        success_message=messages.add_message(request,messages.SUCCESS,'评论成功！',extra_tags='success')
+
         """
         
         redirect重定向到另外的 URL

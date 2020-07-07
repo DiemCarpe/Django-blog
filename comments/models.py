@@ -17,6 +17,8 @@ class Comment(models.Model):
     class Meta:
         verbose_name = '评论'
         verbose_name_plural = verbose_name
+        #根据创建时间排序
+        ordering= ['-created_time']
 
     def __str__(self):
         return '{}:{}'.format(self.name, self.text[:20])

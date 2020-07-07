@@ -76,7 +76,8 @@
         <div class="row">
             <div class="col-md-4 col-sm-5 col-xs-8">
                 <div class="logo">
-                    <h1><a href="blog/inclusions/_weather.html"><b>My</b> &amp; Blog</a></h1>
+{#                    后续修改为index#}
+                    <h1><a href="{% url 'blog:blog' %}"><b>My</b> &amp; Blog</a></h1>
                 </div>
             </div><!-- col-md-4 -->
             <div class="col-md-8 col-sm-7 col-xs-4">
@@ -90,7 +91,7 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="cl-effect-11"><a href="#" data-hover="首页">首页</a></li>
-                            <li class="cl-effect-11"><a href="../blog.html" data-hover="博客">博客</a></li>
+                            <li class="cl-effect-11"><a href="{% url 'blog:blog' %}" data-hover="博客">博客</a></li>
                             <li class="cl-effect-11"><a href="blog/weathers.html" data-hover="天气">天气</a></li>
                             <li class="cl-effect-11"><a href="../contact.html" data-hover="联系">联系</a></li>
                         </ul>
@@ -146,7 +147,7 @@
     <nav>
         <ul>
             <li><a href="blog/index.html">首页</a></li>
-            <li><a href="blog/blog.html">博客</a></li>
+            <li><a href="{% url 'blog:blog' %}">博客</a></li>
             <li><a href="../about.html">关于</a></li>
             <li><a href="../contact.html">联系</a></li>
         </ul>
@@ -163,6 +164,6 @@
 
 
 
-{# <script type="text/javascript" color="255,100,136" opacity="1.5" pointColor="255,100,136" count="99" src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>#}
+ <script type="text/javascript" color="255,100,136" opacity="1.5" pointColor="255,100,136" count="99" src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
 </body>
 </html>

@@ -69,8 +69,24 @@ class Post(models.Model):
     autho=models.ForeignKey(User,verbose_name='作者',on_delete=models.CASCADE)
 
     class Meta:
+        """
+        django 允许我们在 models.Model 的子类里定义一个名为 Meta 的内部类，
+        通过这个内部类指定一些属性的值来规定这个模型类该有的一些特性，
+        例如在这里我们要指定 Post 的排序方式。
+        首先看到 Post 的代码，在 Post 模型的内部定义的 Meta 类中，指定排序属性 ordering：
+        ordering 属性用来指定文章排序方式，['-created_time'] 指定了依据哪个属性的值进行排序，
+        这里指定为按照文章发布时间排序，且负号表示逆序排列。
+        列表中可以有多个项，比如 ordering = ['-created_time', 'title']
+        表示首先依据 created_time 排序，如果 created_time 相同，则再依据 title 排序。
+        这样指定以后所有返回的文章列表都会自动按照 Meta 中指定的顺序排序，
+        因此可以删掉视图函数中对文章列表中返回结果进行排序的代码了。
+
+
+        """
         verbose_name='文章'
         verbose_name_plural=verbose_name
+
+        ordering=['-create_time']
 
     def __str__(self):
         return self.title
@@ -106,3 +122,8 @@ class Post(models.Model):
 
 
 
+class Weather(models.Model):
+    """
+    天气
+    """
+    pass

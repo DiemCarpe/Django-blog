@@ -77,7 +77,9 @@
 					{ // today!
 						'state': { 'display' : 1, 'hourly' : [6,6,2,1,1,7]},
 						'day' : 'Today',
+						//日期
 						'date' : '11/21',
+						//display 温度  hourly时间温度
 						'air' : { 'display' : 28, 'hourly' : [20,17,25,28,27,25]},
 						'windspeed' : { 'display' : 3, 'hourly' : [1,2,3,2,1,1]},
 						'winddirection' : { 'display' : 135, 'hourly' : [1,178,111,114,210,220]},
