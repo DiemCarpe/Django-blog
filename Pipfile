@@ -10,4 +10,11 @@ fabric = "*"
 django = "==2.2.1"
 mysqlclient = "==1.3.14"
 markdown = "*"
+<<<<<<< HEAD
+=======
+gunicorn = "*"
+pymysql = "*"
+
+[requires]
+>>>>>>> f65b35502e666294d955f4b562d38d77a078d8f1
 python_version = "3.6"
